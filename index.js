@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const routes = require('./routes/routes');
 
 require('dotenv').config();
 
@@ -19,6 +20,7 @@ database.once('connected', () => {
 
 // application
 app.use(express.json());
+app.use('/api', routes);
 
 app.listen(portNumber, () => {
   console.log(`Server started at ${portNumber}`);
